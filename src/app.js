@@ -1,11 +1,13 @@
 const express = require("express");
 
 const routes = require("./routes");
-
-// const db = require("./database")
-// db.hasConnection();
+const db = require("./database");
+// const handleError = require("./middlewares/handleError");
+// const log = require("./middlewares/log");
 
 const app = express();
+
+db.hasConnection();
 
 const port = 3000;
 
@@ -15,5 +17,5 @@ app.use(routes);
 
 
 app.listen(port, () => {
-    console.log(`Servidor executando na porta: ${port}`);
+    console.log(`Servidor La-Vie - Saúde Mental está executando na porta: ${port}`);
 });

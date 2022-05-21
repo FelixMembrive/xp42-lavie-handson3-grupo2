@@ -1,5 +1,5 @@
 const { Sequelize } = require("sequelize");
-const UserController = require("../../../xp42-node/03-express/src/controllers/usuario");
+// const UserController = require("../../../xp42-node/03-express/src/controllers/usuario");
 
 const DB_NAME = "lavieDB";
 const DB_USER = "admin";
@@ -21,7 +21,7 @@ try {
 const hasConnection = async() => {
     try {
         await db.authenticate();
-        console.log("Banco de dados conectado!");
+        console.log(`Banco de dados conectado e usando a tabela ${DB_NAME}`);
     } catch (error) {
         console.error("Erro ao conectar com o banco de dado: ", error.message)
     }

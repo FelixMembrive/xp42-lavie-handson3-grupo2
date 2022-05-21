@@ -11,6 +11,8 @@
     "author": "XP42-Grupo2 <felix.membrive@gmail.com>",
     "license": "ISC",
     "dependencies": {
-        "express": "^4.18.1"
+        "express": "^4.18.1",
+        "mysql2": "^2.3.3",
+        "sequelize": "^6.19.2"
     }
 }
