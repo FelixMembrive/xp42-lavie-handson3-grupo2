@@ -1,0 +1,16 @@
+{
+    "name": "xp42-lavie-handson3-grupo2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "node src/app.js",
+        "dev": "nodemon --watch  src/**/* src/app.js"
+    },
+    "keywords": [],
+    "author": "XP42-Grupo2 <felix.membrive@gmail.com>",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.1"
+    }
+}
