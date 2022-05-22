@@ -1,4 +1,5 @@
 const { Psicologo } = require("../models");
+const bcrypt = require("bcryptjs")
 
 const PsicologoController = {
     index: async(req, res) => {
@@ -9,14 +10,23 @@ const PsicologoController = {
 
     store: async(req, res) => {
         const { nome, email, senha, apresentacao } = req.body;
+        const emailExistente = await Psicologo.count({ where: { email, } });
 
-        const novoPsicologo = await Psicologo.create({
-            nome,
-            email,
-            senha,
-            apresentacao
-        })
-        res.json(novoPsicologo)
+        const senhaCriptografada = bcrypt.hashSync(senha, 10)
+
+        if (emailExistente == 0) {
+            const novoPsicologo = await Psicologo.create({
+                nome,
+                email,
+                senha: senhaCriptografada,
+                apresentacao
+            })
+            res.json(novoPsicologo)
+        } else {
+            return res.status(400).json({
+                "Mensagem do erro": "E-mail existente",
+            })
+        }
     },
 
 
@@ -40,22 +50,20 @@ const PsicologoController = {
         })
     },
 
-
     update: async(req, res) => {
         const { id } = req.params;
-        const { nome, email, apresentacao } = req.body;
+        const { nome, apresentacao } = req.body;
 
         const psicologo = await Psicologo.findByPk(id);
 
         if (!psicologo) {
             return res.status(404).json({
-                "mensagem do erro": "Id não encontrado",
+                "Mensagem do erro": "Id não encontrado",
             });
         }
 
         await Psicologo.update({
             nome,
-            email,
             apresentacao,
         }, {
             where: { id, }
@@ -72,7 +80,7 @@ const PsicologoController = {
 
         if (!psicologo) {
             return res.status(404).json({
-                "mensagem do erro": "Id não encontrado",
+                "Mensagem do erro": "Id não encontrado",
             });
         }
 
