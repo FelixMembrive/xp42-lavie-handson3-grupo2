@@ -36,7 +36,7 @@ const PsicologoController = {
 
         if (!psicologo) {
             return res.status(404).json({
-                "mensagem do erro": "Id não encontrado",
+                "Mensagem do erro": "Id não encontrado",
             });
         }
 

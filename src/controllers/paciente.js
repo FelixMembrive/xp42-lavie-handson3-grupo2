@@ -29,14 +29,14 @@ const PacienteController = {
     show: async(req, res) => {
         const { id, } = req.params;
         const paciente = await Paciente.findByPk(id)
-        const { nome, email, idade } = paciente;
 
         if (!paciente) {
             return res.status(404).json({
-                "mensagem do erro": "Id não encontrado",
+                "Mensagem do erro": "Id não encontrado",
             });
         }
 
+        const { nome, email, idade } = paciente;
 
         res.json({
             id,
