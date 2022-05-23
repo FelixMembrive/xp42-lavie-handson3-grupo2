@@ -5,10 +5,10 @@
     "main": "app.js",
     "scripts": {
         "start": "node src/app.js",
-        "dev": "nodemon --watch  src/**/* src/app.js"
+        "dev": "nodemon src/app.js"
     },
     "keywords": [],
-    "author": "XP42-Grupo2 <felix.membrive@gmail.com>",
+    "author": "XP42-Grupo2 <felix.membrive@gmail.com , rafaelsangali@outlook.com>",
     "license": "ISC",
     "dependencies": {
         "bcrypt": "^5.0.1",
