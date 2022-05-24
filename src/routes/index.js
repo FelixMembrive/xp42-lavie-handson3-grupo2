@@ -11,7 +11,9 @@ const dashboardController = require("../controllers/dashboard");
 
 const loginValidation = require("../validators/psicologo/login");
 const psicologoStoreValidation = require("../validators/psicologo/store");
-const psicologoUpdateValidation = require("../validators/psicologo/update")
+const psicologoUpdateValidation = require("../validators/psicologo/update");
+const pacienteStoreUpadateValidation = require("../validators/paciente/store-update");
+const atendimentoStoreValidation = require("../validators/atendimento/store");
 
 
 
@@ -28,13 +30,13 @@ router.delete("/psicologos/:id", PsicologoController.destroy);
 
 
 router.get("/pacientes", PacienteController.index);
-router.post("/pacientes", PacienteController.store);
-router.get("/pacientes/:id", PacienteController.show);
+router.post("/pacientes", pacienteStoreUpadateValidation, PacienteController.store);
+router.get("/pacientes/:id", pacienteStoreUpadateValidation, PacienteController.show);
 router.put("/pacientes/:id", PacienteController.update);
 router.delete("/pacientes/:id", PacienteController.destroy);
 
 router.get("/atendimentos", auth, AtendimentoController.index);
-router.post("/atendimentos", auth, AtendimentoController.store);
+router.post("/atendimentos", auth, atendimentoStoreValidation, AtendimentoController.store);
 router.get("/atendimentos/:id", auth, AtendimentoController.show);
 
 router.get("/dashboard/numero-paciente", dashboardController.index);
