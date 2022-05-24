@@ -1,23 +1,31 @@
 {
-    "name": "xp42-lavie-handson3-grupo2",
-    "version": "1.0.0",
-    "description": "",
-    "main": "app.js",
-    "scripts": {
-        "start": "node src/app.js",
-        "dev": "nodemon src/app.js"
-    },
-    "keywords": [],
-    "author": "XP42-Grupo2 <felix.membrive@gmail.com , rafaelsangali@outlook.com>",
-    "license": "ISC",
-    "dependencies": {
-        "bcrypt": "^5.0.1",
-        "bcryptjs": "^2.4.3",
-        "express": "^4.18.1",
-        "express-jwt": "^7.7.2",
-        "express-validation": "^4.1.0",
-        "jsonwebtoken": "^8.5.1",
-        "mysql2": "^2.3.3",
-        "sequelize": "^6.19.2"
-    }
+  "name": "xp42-lavie-handson3-grupo2",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "XP42-Grupo2 <felix.membrive@gmail.com , rafaelsangali@outlook.com>, brennosavio@hotmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.1",
+    "express-jwt": "^7.7.2",
+    "express-validation": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brenno-Savio/xp42-lavie-handson3-grupo2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Brenno-Savio/xp42-lavie-handson3-grupo2/issues"
+  },
+  "homepage": "https://github.com/Brenno-Savio/xp42-lavie-handson3-grupo2#readme",
+  "description": ""
 }

@@ -1,33 +1,41 @@
-// const { DataTypes } = require("sequelize");
+const { DataTypes } = require("sequelize");
 
-// const db = require("../database");
+const db = require("../database");
 
-// const Psicologo = db.define(
-//     "Psicologo", {
-//         id: {
-//             type: DataTypes.INTEGER,
-//             primaryKey: true,
-//             allowNull: false,
-//             autoIncrement: true
-//         },
-//         nome: {
-//             type: DataTypes.STRING,
-//             allowNull: false
-//         },
-//         email: {
-//             type: DataTypes.STRING,
-//             unique: DataTypes.STRING,
-//             allowNull: false
-//         },
-//         senha: {
-//             type: DataTypes.STRING,
-//             allowNull: false
-//         },
-//         apresentacao: {
-//             type: DataTypes.STRING,
-//             allowNull: false
-//         }
-//     }, { tableName: "psicologo", timestamps: false, underscored: true }
-// );
+const Psicologo = require("./Psicologo");
+const Paciente = require("./Paciente")
 
-// module.exports = Psicologo;
+const Atendimento = db.define(
+    "Atendimento", {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true
+        },
+        psicologo_id: {
+            type: DataTypes.INTEGER,
+            References: {
+                model: Psicologo,
+                key: "id",
+            },
+        },
+        paciente_id: {
+            type: DataTypes.INTEGER,
+            References: {
+                model: Paciente,
+                key: "id",
+            },
+        },
+        data_atendimento: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+        obs: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+    }, { tableName: "atendimento", timestamps: false, underscored: true }
+);
+
+module.exports = Atendimento;
