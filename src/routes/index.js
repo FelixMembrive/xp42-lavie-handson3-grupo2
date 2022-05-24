@@ -1,23 +1,19 @@
 const express = require("express");
+const auth = require("../middlewares/auth");
+const router = express.Router();
 
+const LoginController = require("../controllers/login");
 const HomeController = require("../controllers/home");
-
 const PsicologoController = require("../controllers/psicologo");
+const PacienteController = require("../controllers/paciente");
+const AtendimentoController = require("../controllers/atendimento");
+const dashboardController = require("../controllers/dashboard");
 
+const loginValidation = require("../validators/psicologo/login");
 const psicologoStoreValidation = require("../validators/psicologo/store");
 const psicologoUpdateValidation = require("../validators/psicologo/update")
 
 
-const auth = require("../middlewares/auth");
-
-const LoginController = require("../controllers/login");
-const loginValidation = require("../validators/psicologo/login");
-
-const PacienteController = require("../controllers/paciente");
-
-const AtendimentoController = require("../controllers/atendimento");
-
-const router = express.Router();
 
 router.get("/", HomeController.welcome);
 
@@ -40,5 +36,10 @@ router.delete("/pacientes/:id", PacienteController.destroy);
 router.get("/atendimentos", auth, AtendimentoController.index);
 router.post("/atendimentos", auth, AtendimentoController.store);
 router.get("/atendimentos/:id", auth, AtendimentoController.show);
+
+router.get("/dashboard/numero-paciente", dashboardController.index);
+router.get("/dashboard/numero-atendimento", dashboardController.index);
+router.get("/dashboard/numero-psicologo", dashboardController.index);
+router.get("/dashboard/media-atendimento", dashboardController.index)
 
 module.exports = router;
