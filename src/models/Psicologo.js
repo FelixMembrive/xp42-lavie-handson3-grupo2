@@ -27,7 +27,8 @@ const Psicologo = db.define(
             type: DataTypes.STRING,
             allowNull: false
         }
-    }, { tableName: "psicologo", timestamps: false, underscored: true }
+    }, 
+    { tableName: "psicologo", timestamps: false, underscored: true }
 );
 
 module.exports = Psicologo;

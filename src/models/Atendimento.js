@@ -1,7 +1,5 @@
 const { DataTypes } = require("sequelize");
-
 const db = require("../database");
-
 const Psicologo = require("./Psicologo");
 const Paciente = require("./Paciente")
 
@@ -35,7 +33,8 @@ const Atendimento = db.define(
             type: DataTypes.STRING,
             allowNull: false,
         },
-    }, { tableName: "atendimento", timestamps: false, underscored: true }
+    },
+     { tableName: "atendimento", timestamps: false, underscored: true }
 );
 
 module.exports = Atendimento;
