@@ -7,7 +7,7 @@
     "dev": "nodemon src/app.js"
   },
   "keywords": [],
-  "author": "XP42-Grupo2 <felix.membrive@gmail.com , rafaelsangali@outlook.com>, brennosavio@hotmail.com>",
+  "author": "XP42-Grupo2 <felix.membrive@gmail.com , rafaelsangali@outlook.com>, brennosavio@hotmail.com, min_rocha@hotmail.com>",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -28,5 +28,8 @@
     "url": "https://github.com/Brenno-Savio/xp42-lavie-handson3-grupo2/issues"
   },
   "homepage": "https://github.com/Brenno-Savio/xp42-lavie-handson3-grupo2#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
 }
