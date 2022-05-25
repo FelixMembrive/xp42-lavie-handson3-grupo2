@@ -1,6 +1,5 @@
 const { Atendimento, Paciente, Psicologo } = require("../models");
 
-
 const dashboardController = {
 
     index: async(req, res) => {
@@ -40,11 +39,7 @@ const dashboardController = {
         res.status(200).json("A média de atendimento é de " + mediaAtendimento.toFixed(2) + " para cada psicologo");
 
         }
-
     },
-    
 }
-
-
 
 module.exports = dashboardController;

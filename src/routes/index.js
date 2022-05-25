@@ -1,5 +1,4 @@
 const express = require("express");
-const auth = require("../middlewares/auth");
 const router = express.Router();
 
 const LoginController = require("../controllers/login");
@@ -22,7 +21,7 @@ router.post("/login", loginValidation, LoginController.login);
 router.get("/psicologos", PsicologoController.index);
 router.post("/psicologos", psicologoStoreValidation, PsicologoController.store);
 router.get("/psicologos/:id", PsicologoController.show);
-router.put("/psicologos/:id", auth, psicologoUpdateValidation, PsicologoController.update);
+router.put("/psicologos/:id", psicologoUpdateValidation, PsicologoController.update);
 router.delete("/psicologos/:id", PsicologoController.destroy);
 
 router.get("/pacientes", PacienteController.index);

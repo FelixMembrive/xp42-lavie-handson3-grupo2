@@ -23,7 +23,8 @@ const Paciente = db.define(
             type: DataTypes.STRING,
             allowNull: false
         },
-    }, { tableName: "paciente", timestamps: false, underscored: true }
+    }, 
+    { tableName: "paciente", timestamps: false, underscored: true }
 );
 
 module.exports = Paciente;

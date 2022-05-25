@@ -6,7 +6,6 @@ const PacienteController = {
         res.json(todosPaciente);
     },
 
-
     store: async(req, res) => {
         const { nome, email, idade, } = req.body;
         const emailExistente = await Paciente.count({ where: { email, } });
@@ -24,7 +23,6 @@ const PacienteController = {
             })
         }
     },
-
 
     show: async(req, res) => {
         const { id, } = req.params;
@@ -69,7 +67,6 @@ const PacienteController = {
         const pacienteAtualizado = await Paciente.findByPk(id)
         res.json(pacienteAtualizado);
     },
-
 
     destroy: async(req, res) => {
         const { id } = req.params;

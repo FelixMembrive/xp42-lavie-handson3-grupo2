@@ -3,10 +3,11 @@ const bcrypt = require("bcryptjs")
 
 const PsicologoController = {
     index: async(req, res) => {
-        const todosPsicologos = await Psicologo.findAll();
+        const todosPsicologos = await Psicologo.findAll({
+  attributes: ["id", "nome", "email", "apresentacao"]
+});
         res.json(todosPsicologos);
     },
-
 
     store: async(req, res) => {
         const { nome, email, senha, apresentacao } = req.body;
@@ -28,7 +29,6 @@ const PsicologoController = {
             })
         }
     },
-
 
     show: async(req, res) => {
         const { id, } = req.params;
@@ -73,7 +73,6 @@ const PsicologoController = {
         res.json(psicologoAtualizado);
     },
 
-
     destroy: async(req, res) => {
         const { id } = req.params;
         const psicologo = await Psicologo.findByPk(id);
@@ -83,7 +82,6 @@ const PsicologoController = {
                 "Mensagem do erro": "Id não encontrado",
             });
         }
-
         try {
             await psicologo.destroy();
             res.status(204).send("");

@@ -1,7 +1,4 @@
 const { Atendimento, Paciente, Psicologo } = require("../models");
-const bcrypt = require("bcryptjs");
-
-
 
 const AtendimentoController = {
     
@@ -9,15 +6,11 @@ const AtendimentoController = {
         const todosAtendimentos = await Atendimento.findAll({include: Paciente});
         res.status(200).json(todosAtendimentos);
 
-        const psi_id = await Psicologo.findByPk(req.auth.id);
-
-        console.log(psi_id)
-
     },
 
     store: async(req, res) => {
         const { paciente_id, data_atendimento, obs } = req.body;
-  
+
         const novoAtendimento = await Atendimento.create({
             psicologo_id: req.auth.id,
             paciente_id,
