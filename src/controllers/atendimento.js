@@ -6,22 +6,29 @@ const AtendimentoController = {
         const todosAtendimentos = await Atendimento.findAll({include: Paciente});
         res.status(200).json(todosAtendimentos);
 
+
     },
 
     store: async(req, res) => {
         const { paciente_id, data_atendimento, obs } = req.body;
+        
+        const pacienteExistente = await Paciente.count({ where: { id: paciente_id }})
 
-        const novoAtendimento = await Atendimento.create({
-            psicologo_id: req.auth.id,
-            paciente_id,
-            data_atendimento,
-            obs
-        })
-        res.json(novoAtendimento)
+        console.log(pacienteExistente)
 
-        return res.status(400).json({
-            "Mensagem do erro": "E-mail existente",
-        })
+        if (pacienteExistente != 0 ){
+            const novoAtendimento = await Atendimento.create({
+                psicologo_id: req.auth.id,
+                paciente_id,
+                data_atendimento,
+                obs
+            })
+            res.json(novoAtendimento)
+        } else {    
+            return res.status(400).json({
+            "Mensagem do erro": "Paciente não existente",
+            })
+        }    
     },
 
     show: async (req, res) => {
