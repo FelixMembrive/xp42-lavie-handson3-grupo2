@@ -3,18 +3,13 @@ const { Atendimento, Paciente, Psicologo } = require("../models");
 const AtendimentoController = {
     
     index: async(req, res) => {
-        const todosAtendimentos = await Atendimento.findAll({include: Paciente});
+        const todosAtendimentos = await Atendimento.findAll({attributes: ["id", "psicologo_id", "data_atendimento", "obs" ], include: Paciente});
         res.status(200).json(todosAtendimentos);
-
-
     },
 
     store: async(req, res) => {
         const { paciente_id, data_atendimento, obs } = req.body;
-        
         const pacienteExistente = await Paciente.count({ where: { id: paciente_id }})
-
-        console.log(pacienteExistente)
 
         if (pacienteExistente != 0 ){
             const novoAtendimento = await Atendimento.create({
